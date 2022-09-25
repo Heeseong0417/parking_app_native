@@ -60,11 +60,12 @@ const TrafficStack =({navigation})=>{
     <>
     <SafeAreaView>
     <Header_create name={"Traffic"} nav={click_header} stickyHeaderIndices={[0]}/> 
-    <ScrollView style={[styles_main.main_con,{backgroundColor:"#e9e9e9"},styles_main.box_shadow]}>
-      <View>
-        <Text style={[styles_main.mbox,styles_main.title_h2,styles_main.box_shadow,{marginTop:20}]}> 트래픽 통계</Text>
-<Text style={[styles_main.title_h4]} > 교통량 통계 및 시간대별 통계를 확인할 수 있습니다. </Text>
-      </View>
+    <ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]}>
+    <View style={[styles_main.main_card]}>
+    <Text style={[styles_main.main_card_title]}>TRAFFICS</Text>
+    <Text style={[styles_main.main_card_text]}> 교통량 통계 및 시간대별 통계를 확인할 수 있습니다.</Text>
+   </View>
+
 
      
     

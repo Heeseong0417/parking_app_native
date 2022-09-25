@@ -1,4 +1,5 @@
 import {styles, styles_slider, styles_main} from "../../style/Styles"
+
 import * as React from 'react';
 import { Text, View ,StatusBar ,Button,ScrollView, Alert,TouchableOpacity,Image, Dimensions, StyleSheet, TouchableHighlight } from 'react-native';
 
@@ -13,7 +14,8 @@ import Tooltip from 'react-native-walkthrough-tooltip';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Swiper from "react-native-swiper";
 import { Background } from "victory-native";
-
+import daz from'../../assets/images/flower-.jpg'
+import flr from'../../assets/images/daisy.jpg'
 const weather ={
 비:'오늘은 비가 오는 날입니다. 외출 시 주의하세요.',
 맑음:'오늘은 화창할 것으로 예상됩니다.',
@@ -21,6 +23,7 @@ const weather ={
 
 
 }
+
 const WINDOW_WIDHT = Dimensions.get("window").width; // Dimensions.get("screen").width;
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 
@@ -72,14 +75,17 @@ return(
   <SafeAreaView style={{backgroundColor:"#5271ff"}} >
 
 <Header_create name={"Home"} nav={click_header}/>
-<ScrollView style={[styles_main.main_con,{backgroundColor:"#e9e9e9"},styles_main.box_shadow]}  >
+<ScrollView style={[{backgroundColor:"#f8f9fa"}]}  >
+
+<View style={[styles_main.main_card]}>
+    <Text style={[styles_main.main_card_title]}>HOME</Text>
+    <Text style={[styles_main.main_card_text]}>실시간 교통 정보 및 차량 정보를 볼 수 있습니다.</Text>
+   </View>
 
 
-   
-<Text style={[styles_main.title_h4,{marginTop:20}]} > <Text style={[styles_main.title_h4,{color:"gray"}]}>{name}</Text> 님 안녕하세요 오늘도 좋은하루 되세요! </Text>
 
-<View style={[styles_main.mbox]}>
-            
+<View style={[styles_main.main_card_nomargin]}>
+    <View style={[styles_main.mbox]}>
           <TouchableOpacity
           
    
@@ -100,11 +106,11 @@ return(
 
       <LinearProgress style={{ marginVertical: 10 }} />
       <Text style={styles_main.text_b}>65%</Text>
-    </View>
-<View style={[styles_main.mbox]}>
-     
+    </View>        
+<View style={[{}]}>
+        <View style={[styles_main.mbox]}>
         <TouchableOpacity onPress={() => navigation.navigate('CarLog')}>
-           <Text style={styles_main.text_b}> 차량정보 <Icon
+           <Text style={[styles_main.text_b,{textAlign:"center"}]}> 차량정보 <Icon
             name={"chevron-right"}
             color={"gray"}
             size={15}
@@ -112,9 +118,12 @@ return(
         </TouchableOpacity>
      
 
-      <View style={[styles_main.box_board,styles_main.mbox]}>
+   
          <Swiper style={styles_slider.wrapper} showsButtons={false} dotColor={'gray'} activeDotColor={'#b8b8d2'} autoplay={true}>
-       
+       <View style={[styles_main.main_card_divide]}>
+      <Icon style={[styles_main.main_card_img]}name={'car'} color={"#5271ff"} size={WINDOW_WIDHT} />
+       <View style={[styles_main.main_card_divt]}><Text style={[styles_main.main_card_text]}>fdfdfdfdfdffd</Text></View>
+       </View>
         <View style={[styles_slider.slide1,{alignItems:"center", paddingBottom:10}]}>
         <View style={{justifyContent:"space-around",flexDirection:"row"}} ><Text onPress={() => navigation.navigate("Listitems")} style={[styles_slider.text,{alignItems:"center"}]}><Icon name={'car'} color={"#5271ff"} size={WINDOW_WIDHT/20} />{"   주민 차량 : " +info.주민차량}</Text></View>
         <View style={{justifyContent:"space-around",flexDirection:"row"}}><Text onPress={() => navigation.navigate("Listitems")} style={[styles_slider.text,{alignItems:"center"}]}><Icon name={'bus-alt'} color={"#5271ff"} size={WINDOW_WIDHT/20} />{"   통학 차량 : " +info.통학차량}</Text></View>
@@ -129,7 +138,7 @@ return(
       </Swiper>
       </View>
 
- </View>
+
 
     <View style={{flex:1,  justifyContent: "space-between",flexDirection: 'row',padding:20,marginBottom:WINDOW_HEIGHT/12,marginTop:20}}>
     <View style={[styles_main.box_b,{flex:2,}]}>
@@ -139,13 +148,37 @@ return(
 <View style={[{marginTop:30, borderRadius:100},styles_main.box_shadow]}>
  <Avatar onPress={()=>setTip(true)} size="small"  source={Man}></Avatar>   
 </View>
-  
+   </View>
 
 
   
   
     </View> 
-   
+   <View style={[styles_main.main_card]}>
+<View>
+<Text style={[styles_main.main_card_title]}> 이것은 헤더이다. </Text>
+<Text style={[styles_main.main_card_text]}>이것이 헤더입니다. 이것은 아무거나 쓴 글입니다.</Text>
+<View style={[styles_main.main_card]}>
+<View style={[styles_main.main_card_divide]}>
+ <Image style={[styles_main.main_card_img]} source={Man}></Image>
+  <View style={[styles_main.main_card_divt]}>
+    <Text style={[styles_main.main_card_sub]}>이것은 카드다</Text>
+    <Text style={[styles_main.main_card_text]}> 왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.</Text>
+    </View>
+
+</View>
+  </View>
+  </View>
+<View style={[styles_main.main_card_divide]}>
+  <Image style={[styles_main.main_card_img]} source={flr}></Image>
+  <View style={[styles_main.main_card_divt]}><Text style={[styles_main.main_card_sub]}>이것은 카드다</Text>
+  <Text style={[styles_main.main_card_text]}> 왜냐하면 이것은 카드이기 떄문이다.</Text>
+  </View>
+</View>
+</View>
+ 
+</View>
+
   </ScrollView></SafeAreaView></> 
 )
 

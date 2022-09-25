@@ -151,11 +151,12 @@ return (
 
 <Header_create name={"Safety"} nav={click_header}/>
 
-<ScrollView style={[styles_main.main_con,{backgroundColor:"#e9e9e9"},styles_main.box_shadow]}>
-<View>
-        <Text style={[styles_main.mbox,styles_main.title_h2,styles_main.box_shadow,{marginTop:20}]}> 교통 안전 위험도</Text>
-<Text style={[styles_main.title_h4]} > 교통안전 위험도 및 오늘의 차량 수를 확인할 수 있습니다. </Text>
-      </View>
+<ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]}>
+<View style={[styles_main.main_card]}>
+    <Text style={[styles_main.main_card_title]}>SAFETY</Text>
+    <Text style={[styles_main.main_card_text]}>교통안전 위험도 및 오늘의 차량 수를 확인할 수 있습니다. </Text>
+   </View>
+
 <Card
       containerStyle={{ marginTop: 15, alignSelf: "auto", borderRadius: 20 }}
     >

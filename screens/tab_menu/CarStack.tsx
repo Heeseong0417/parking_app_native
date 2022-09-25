@@ -44,11 +44,12 @@ const List_car = ()=>{
       <>
          <SafeAreaView style={{backgroundColor:"#5271ff"}}> 
           <Header_create name={"Car log"} nav={click_header}/>
-          <ScrollView style={[styles_main.main_con,{backgroundColor:"#e9e9e9"},styles_main.box_shadow]}>
-          <View>
-        <Text style={[styles_main.mbox,styles_main.title_h2,styles_main.box_shadow,{marginTop:20}]}>주차 기록</Text>
-<Text style={[styles_main.title_h4]} >나의 주차 기록을 확인 할 수 있습니다. </Text>
-      </View>
+          <ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]}>
+          <View style={[styles_main.main_card]}>
+    <Text style={[styles_main.main_card_title]}>CARLOG</Text>
+    <Text style={[styles_main.main_card_text]}>나의 주차 기록을 확인 할 수 있습니다. </Text>
+   </View>
+    
       <View style={styles_main.stick}/>
     <Text style={styles_account.textcolor}>{carnum}</Text>
     <View>

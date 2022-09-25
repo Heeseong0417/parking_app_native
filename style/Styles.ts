@@ -1,5 +1,5 @@
 
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, useWindowDimensions } from 'react-native';
 
 const WINDOW_WIDHT = Dimensions.get("window").width; // Dimensions.get("screen").width;
 const WINDOW_HEIGHT = Dimensions.get("window").height;
@@ -235,7 +235,7 @@ borderRadius:5,
     alignItems:"center",
    justifyContent:"center",
    color:"black",
-    opacity: 0.5,
+    opacity: 0.8,
     fontFamily:"GmarketSansTTFBold",
     fontSize:WINDOW_WIDHT/20,
     fontWeight:"bold"
@@ -246,7 +246,7 @@ borderRadius:5,
     alignItems:"center",
    justifyContent:"center",
    color:"black",
-    opacity: 0.5,
+    opacity: 0.8,
     fontFamily:"GmarketSansTTFBold",
     fontSize:WINDOW_WIDHT/40,
     fontWeight:"bold"},
@@ -256,7 +256,7 @@ borderRadius:5,
       alignItems:"center",
      justifyContent:"center",
      color:"black",
-      opacity: 0.5,
+      opacity: 0.8,
       fontFamily:"GmarketSansTTFBold",
       fontSize:WINDOW_WIDHT/30,
       fontWeight:"bold"},
@@ -281,11 +281,94 @@ borderRadius:5,
     elevation: 5, 
     borderRadius:5,
     backgroundColor :"white",
-    opacity:30,
+   
     padding:10,
     margin:10
-  }
-  
+  },
+  main_card:{
+    backgroundColor:"white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5, 
+
+   
+    padding:10,
+    marginVertical:10,
+  },
+  main_card_nomargin:{
+    backgroundColor:"white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5, 
+
+   
+
+
+  },
+  main_card_title:{
+color:"black",
+opacity:0.8,
+
+fontFamily:"GmarketSansTTFBold",
+fontSize:WINDOW_WIDHT/15,
+fontWeight:'bold'
+  },
+  main_card_sub:{
+    color:"black",
+    opacity:0.8,
+    fontFamily:"GmarketSansTTFMedium",
+    fontSize:WINDOW_WIDHT/20,
+    fontWeight:'bold'
+    
+      },
+      main_card_text:{
+        color:"black",
+        opacity:0.8,
+        fontFamily:"GmarketSansTTFMedium",
+        fontSize:WINDOW_WIDHT/30
+      },
+      main_card_divide:{
+        flex:1,
+        flexDirection:"row",
+        justifyContent:"space-around",
+        alignItems:"center"
+      },
+      main_card_img:{
+        flex:2,
+        backgroundColor:"gray",
+        resizeMode: "cover",
+        borderRadius:5,
+        height:WINDOW_HEIGHT>WINDOW_WIDHT? WINDOW_HEIGHT/8:WINDOW_HEIGHT/2,
+        justifyContent:"center",
+        alignItems:"center",
+        padding:10,
+        marginRight:10,
+        opacity:0.8
+      },main_card_divt:{
+        borderRadius:5,
+        marginLeft:10,
+        padding:10,
+       
+        flex:3,
+        justifyContent:"space-around",
+        alignItems:"flex-start",
+       
+       
+      },icon_con:{
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center"
+      }
 
 
 

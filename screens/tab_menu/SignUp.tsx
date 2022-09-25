@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from '@react-navigation/native';
-import { styles_account } from "../../style/Styles";
-import { createBottomTabNavigator, BottomTabBarProps} from "@react-navigation/bottom-tabs";
+import { styles_account, styles_main } from "../../style/Styles";
+import { createBottomTabNavigator, BottomTabBarProps, BottomTabBarButtonProps} from "@react-navigation/bottom-tabs";
 import * as React from 'react';
-import { StyleSheet, Text, View ,StatusBar ,Button,ScrollView, Alert,TouchableOpacity,Image, Settings, Dimensions } from 'react-native';
+import { StyleSheet, Text, View ,StatusBar ,Button,ScrollView, Alert,TouchableOpacity,Image, Settings, Dimensions, AccessibilityInfo, Animated } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import Icon from "react-native-vector-icons/Ionicons";
 import { FlatList } from "react-native-gesture-handler";
@@ -19,7 +19,7 @@ import ScrollTabView from "react-native-swiper-view"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 //////////////////////////////////네비게이션 타입/////////////////////////////////////////
 import Swiper from "react-native-swiper"
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Login from "../auth/Login";
@@ -29,6 +29,9 @@ import CarStack from "./CarStack";
 import AccountStack from "./AccountStack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SafetyStack from "./SafetyStack";
+import { styles } from './../../style/Styles';
+import { accessibilityProps } from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon';
+
 const WINDOW_WIDHT = Dimensions.get("window").width; // Dimensions.get("screen").width;
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 export type BnbNavigator = {
@@ -42,8 +45,8 @@ export type BnbNavigator = {
   
 };
 //////////////////////////////////네비게이션 타입/////////////////////////////////////////
-const Tab = createMaterialTopTabNavigator();
-const Tab2 = createBottomTabNavigator<BnbNavigator>();
+const Tab2 = createMaterialTopTabNavigator();
+const Tab = createBottomTabNavigator<BnbNavigator>();
 
 const Stack = createStackNavigator();
 
@@ -152,7 +155,26 @@ return ()=>{
 }
   
 }, [key])
-  
+
+  const Tab_button =(props: any)=>{
+    const fadeAnim = React.useRef(new Animated.Value(0)).current;
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: false
+    }).start();
+    const{item,name,onPress,accessibilityState} = props;
+    const focused= accessibilityState.selected;
+  console.log
+    return(
+     
+
+ 
+      <TouchableOpacity  style={[styles_main.icon_con]} onPress={onPress}>
+      <Icon style={{alignItems: "center"}} name={name} color={focused?"#3D5CFF":"#B8B8D2"} size={WINDOW_WIDHT/12} />
+     {focused?<Text style={[styles_main.title_h4]}>{item}</Text>:""}
+      </TouchableOpacity>  )
+  }
     return (
       <>
         {typeof state === "undefined" || state === null || state === "" ? (
@@ -163,23 +185,27 @@ return ()=>{
           
           <Tab.Navigator
         
-          tabBarPosition="bottom"
-        
+          
           sceneContainerStyle={
             {
               backgroundColor:"#5271ff"
             }
           }
                      screenOptions={{
-                      
-              tabBarLabelStyle:{fontSize:WINDOW_WIDHT/50},
+                      headerShown:false,
+              tabBarLabelStyle:{fontSize:WINDOW_WIDHT/30},
              
-                
+              
                 tabBarInactiveTintColor:"#B8B8D2",
                 tabBarActiveTintColor : "#3D5CFF",
              
-              
-              tabBarStyle: [{ backgroundColor: "#5271ff"/**#308FFF */,height:WINDOW_HEIGHT/12}],
+           
+              tabBarStyle: [{
+                
+                borderRadius:10,
+                position:"absolute",
+                bottom:10,right:10,left:10,
+               backgroundColor: "#5271ff"/**#308FFF */,height:WINDOW_HEIGHT/12}],
               
             }
             
@@ -198,9 +224,10 @@ return ()=>{
                 tabBarIcon:({focused,color})=> (
                   
                  
-                  <Icon style={{alignItems: "center"}} name={'home'} color={color} size={WINDOW_WIDHT/16} />
+                  <Icon style={{alignItems: "center"}} name={'home'} color={color} size={WINDOW_WIDHT/16}/>
              
-                )
+                ),
+                tabBarButton:(props)=> <Tab_button {...props} item={"Home"} name={"home"}/>
                 
               }}
             ></Tab.Screen>
@@ -209,8 +236,10 @@ return ()=>{
               name="Traffic"
               component={TrafficStack}
               options={{ tabBarIcon:({focused, color})=> (
-                <Icon style={{alignItems: "center"}} name={'ios-bar-chart'} color={color} size={WINDOW_WIDHT/16} />
-          ) }}
+               <Icon style={{alignItems: "center"}} name={'ios-bar-chart'} color={color} size={WINDOW_WIDHT/16} />
+          ),
+          tabBarButton:(props)=> <Tab_button {...props} item={"Traffic"} name={"ios-bar-chart"}/>
+        }}
             ></Tab.Screen>
            
             <Tab.Screen
@@ -218,7 +247,9 @@ return ()=>{
               component={SafetyStack}
               options={{ tabBarIcon:({focused,color})=> (
                 <Icon style={{alignItems: "center"}} name={'ios-shield-checkmark'} color={color} size={WINDOW_WIDHT/16} />
-                ) }}
+                ),
+                tabBarButton:(props)=> <Tab_button {...props} item={"Safety"} name={"ios-shield-checkmark"}/>
+              }}
             ></Tab.Screen>
             
             <Tab.Screen
@@ -226,6 +257,7 @@ return ()=>{
               component={CarStack}
               options={{
                 tabBarIcon:({focused,color})=> ( <Icon style={{alignItems: "center"}} name={'car'} color={color} size={WINDOW_WIDHT/16} />),
+                tabBarButton:(props)=> <Tab_button {...props} item={"CarLog"} name={"car"}/>
               }}
             ></Tab.Screen>
             <Tab.Screen
@@ -234,7 +266,7 @@ return ()=>{
               options={{
                 tabBarIcon:({focused,color}:any)=> (
                   <Icon style={{alignItems: "center"}} name={'ios-person-circle'} color={color} size={WINDOW_WIDHT/16} />
-      ),
+      ),tabBarButton:(props)=> <Tab_button {...props} item={"Account"} name={"ios-person-circle"}/>
              
               }}
 

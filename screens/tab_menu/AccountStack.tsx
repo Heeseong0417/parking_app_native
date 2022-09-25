@@ -80,8 +80,12 @@ return (
 <>
 <SafeAreaView>
 <Header_create name={"Account"} nav={click_header}/>
-<ScrollView style={[styles_main.main_con,{backgroundColor:"#e9e9e9"},styles_main.box_shadow]}>
-<View style={[styles_main.main_con,{backgroundColor:"#e9e9e9"},styles_main.box_shadow]}>
+<ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]}>
+
+<View style={[styles_main.main_card]}>
+    <Text style={[styles_main.main_card_title]}>ACCOUNT</Text>
+    <Text style={[styles_main.main_card_text]}>회원 정보 및 설정 </Text>
+   </View>
     <Card
       containerStyle={{ marginTop: 15, alignSelf: "auto", borderRadius: 20 }}
     >
@@ -126,7 +130,7 @@ return (
         </TouchableOpacity>}
         </View>
       </View></Card.FeaturedTitle>
-    </Card></View>
+    </Card>
     </ScrollView>
     </SafeAreaView>
     </>
