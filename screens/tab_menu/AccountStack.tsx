@@ -8,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import  MaterialCommunityIcons  from "react-native-vector-icons/Ionicons";
 import { FlatList } from "react-native-gesture-handler";
 import { Header , ListItem, Avatar,Card,LinearProgress  } from '@rneui/base';
-
+import flr from'../../assets/images/daisy.jpg'
 import { useEffect, useState } from 'react';
 import { doc,collection, addDoc, getDocs, query, where, orderBy, limit } from "firebase/firestore/lite";
 import LineGraph from '@chartiful/react-native-line-graph';
@@ -18,6 +18,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {styles_account, styles_main} from "../../style/Styles"
 import { Header_create } from "./header/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Logo_header from "./header/Logo_header";
+
 
 const WINDOW_WIDHT = Dimensions.get("window").width; // Dimensions.get("screen").width;
 const WINDOW_HEIGHT = Dimensions.get("window").height;
@@ -79,58 +81,39 @@ return (
    
 <>
 <SafeAreaView>
-<Header_create name={"Account"} nav={click_header}/>
-<ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]}>
 
+<ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]} stickyHeaderIndices={[1]}>
+<Logo_header/>
+<Header_create name={"Account"} nav={click_header}/>
 <View style={[styles_main.main_card]}>
     <Text style={[styles_main.main_card_title]}>ACCOUNT</Text>
     <Text style={[styles_main.main_card_text]}>회원 정보 및 설정 </Text>
    </View>
-    <Card
-      containerStyle={{ marginTop: 15, alignSelf: "auto", borderRadius: 20 }}
-    >
-      <Card.Title style={{ textAlign: "left" }}>회원정보</Card.Title>
-      <Card.Divider />
-      <Card.FeaturedTitle>
-      <View style={{ flexDirection: "row",padding:10}}>
-        <Avatar
-          source={{ uri: "https://randomuser.me/api/portraits/men/4.jpg" }}
-          size={WINDOW_WIDHT/5}
-          containerStyle={{marginRight:10}}/>
-
-        <View>
-          <Text style={styles_account.textcolor}>
-            <MaterialCommunityIcons
-              name={"person"}
-              color={"fff"}
-              size={10}
-            />
-          이름 : {info.name}
-          </Text >
-          <Text style={styles_account.textcolor}>
-            <MaterialCommunityIcons name={"mail"} color={"fff"} size={10} />
-            이메일 : {info.email}
-          </Text >
-          <Text style={styles_account.textcolor}>
-            <MaterialCommunityIcons name={"ios-card-outline"} color={"fff"} size={10} />
-            차량 번호 : {info.carnum}
-          </Text>
-           {/**   <Text style={styles_account.textcolor}>
-        
-            <MaterialCommunityIcons name={"ios-code-slash"} color={"fff"} size={30} />
-            토큰 : {state}
-          </Text>*/
-          <TouchableOpacity
-        style= {styles_account.submitButton}
+   <View style={[styles_main.mbox,{padding:10}]}>
+          <Text style={[styles_main.main_card_sub,{paddingTop:10,paddingLeft:10}]}>회원 정보</Text>
+          <View style={styles_main.stick}/>     
+       <View style={[styles_main.chart_con,{padding:10}]}>
+       <View style={[styles_main.main_card_divide]}>
+  <Image style={[styles_main.main_card_img]} source={{uri:"https://randomuser.me/api/portraits/men/4.jpg"}}></Image>
+  <View style={[styles_main.main_card_divt]}>
+    <Text style={[styles_main.main_card_text]}> 이름 : {info.name}</Text>
+    <Text style={[styles_main.main_card_text]}> 이메일 : {info.email}</Text>
+    <Text style={[styles_main.main_card_text]}> 차량 번호 : {info.carnum}</Text>
+    <TouchableOpacity
+        style= {[styles_account.submitButton,{justifyContent:"center",alignItems:"center"}]}
         onPress = {
          removeData
          
         }>
           <Text style = {styles_account.submitButtonText}>로그아웃</Text>
-        </TouchableOpacity>}
+        </TouchableOpacity>
+  </View>
+        
         </View>
-      </View></Card.FeaturedTitle>
-    </Card>
+        </View>
+        </View>
+
+
     </ScrollView>
     </SafeAreaView>
     </>

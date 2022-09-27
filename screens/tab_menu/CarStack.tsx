@@ -18,6 +18,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { styles_account, styles_main } from "../../style/Styles";
 import { Header_create } from "./header/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Logo_header from "./header/Logo_header";
 
 
 
@@ -42,9 +43,12 @@ const List_car = ()=>{
   return (
 
       <>
-         <SafeAreaView style={{backgroundColor:"#5271ff"}}> 
-          <Header_create name={"Car log"} nav={click_header}/>
-          <ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]}>
+         <SafeAreaView> 
+     
+         <ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]} stickyHeaderIndices={[1]} >
+  <Logo_header/>
+<Header_create name={"Home"} nav={click_header}/>
+
           <View style={[styles_main.main_card]}>
     <Text style={[styles_main.main_card_title]}>CARLOG</Text>
     <Text style={[styles_main.main_card_text]}>나의 주차 기록을 확인 할 수 있습니다. </Text>
@@ -52,7 +56,7 @@ const List_car = ()=>{
     
       <View style={styles_main.stick}/>
     <Text style={styles_account.textcolor}>{carnum}</Text>
-    <View>
+    <View style={[{paddingBottom:10}]}>
   {value_data&&value_data.length !== 0 ? (<>
           {
           value_data.map((l, i) => (
@@ -76,7 +80,7 @@ const Click_car = (navigation:any)=>{
 
   return (
 
-    <ScrollView>
+    <ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]} stickyHeaderIndices={[1]}>
     <Card>
     <Text style={styles_account.textcolor}>{carnum}</Text>
  
@@ -160,11 +164,13 @@ const [value_data, setvalue_data] = useState([
         screenOptions={
              
               { 
-             
+                cardStyle: {backgroundColor:"#5271ff"},
                 headerTitle:"",
                 headerShown:false,
                 
          }}
+     
+      
             
 
              

@@ -172,7 +172,7 @@ return ()=>{
  
       <TouchableOpacity  style={[styles_main.icon_con]} onPress={onPress}>
       <Icon style={{alignItems: "center"}} name={name} color={focused?"#3D5CFF":"#B8B8D2"} size={WINDOW_WIDHT/12} />
-     {focused?<Text style={[styles_main.title_h4]}>{item}</Text>:""}
+     {focused?<Text style={[styles_main.text_w]}>{item}</Text>:""}
       </TouchableOpacity>  )
   }
     return (

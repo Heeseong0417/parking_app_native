@@ -16,6 +16,9 @@ import Swiper from "react-native-swiper";
 import { Background } from "victory-native";
 import daz from'../../assets/images/flower-.jpg'
 import flr from'../../assets/images/daisy.jpg'
+import { SvgUri } from "react-native-svg";
+import comax from '../../assets/images/comax_white.png'
+import Logo_header from "./header/Logo_header";
 const weather ={
 비:'오늘은 비가 오는 날입니다. 외출 시 주의하세요.',
 맑음:'오늘은 화창할 것으로 예상됩니다.',
@@ -72,11 +75,14 @@ useEffect(() => {
 }, [])
 return(   
   <>
-  <SafeAreaView style={{backgroundColor:"#5271ff"}} >
+  <SafeAreaView  >
 
+  
+
+
+<ScrollView style={[styles_main.main_con,{backgroundColor:"#f8f9fa"},styles_main.box_shadow]} stickyHeaderIndices={[1]} >
+  <Logo_header/>
 <Header_create name={"Home"} nav={click_header}/>
-<ScrollView style={[{backgroundColor:"#f8f9fa"}]}  >
-
 <View style={[styles_main.main_card]}>
     <Text style={[styles_main.main_card_title]}>HOME</Text>
     <Text style={[styles_main.main_card_text]}>실시간 교통 정보 및 차량 정보를 볼 수 있습니다.</Text>
@@ -84,7 +90,7 @@ return(
 
 
 
-<View style={[styles_main.main_card_nomargin]}>
+<View >
     <View style={[styles_main.mbox]}>
           <TouchableOpacity
           
@@ -154,28 +160,7 @@ return(
   
   
     </View> 
-   <View style={[styles_main.main_card]}>
-<View>
-<Text style={[styles_main.main_card_title]}> 이것은 헤더이다. </Text>
-<Text style={[styles_main.main_card_text]}>이것이 헤더입니다. 이것은 아무거나 쓴 글입니다.</Text>
-<View style={[styles_main.main_card]}>
-<View style={[styles_main.main_card_divide]}>
- <Image style={[styles_main.main_card_img]} source={Man}></Image>
-  <View style={[styles_main.main_card_divt]}>
-    <Text style={[styles_main.main_card_sub]}>이것은 카드다</Text>
-    <Text style={[styles_main.main_card_text]}> 왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.왜냐하면 이것은 카드이기 떄문이다.</Text>
-    </View>
 
-</View>
-  </View>
-  </View>
-<View style={[styles_main.main_card_divide]}>
-  <Image style={[styles_main.main_card_img]} source={flr}></Image>
-  <View style={[styles_main.main_card_divt]}><Text style={[styles_main.main_card_sub]}>이것은 카드다</Text>
-  <Text style={[styles_main.main_card_text]}> 왜냐하면 이것은 카드이기 떄문이다.</Text>
-  </View>
-</View>
-</View>
  
 </View>
 

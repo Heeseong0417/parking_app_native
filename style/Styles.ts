@@ -104,8 +104,8 @@ export const styles = StyleSheet.create({
   })
   export const styles_slider = StyleSheet.create({
     wrapper: {
-
-height:WINDOW_HEIGHT/5
+padding:10,
+height:WINDOW_HEIGHT/4
 
     },
     slide1: {
@@ -157,7 +157,7 @@ header_black:{
   justifyContent:"space-between",color:"#fff",fontWeight:"700",fontFamily:"Helvetica",fontSize:WINDOW_WIDHT/20
 
 },stick:{
-  padding:10,
+  paddingHorizontal:10,
   margin:10,
 borderBottomWidth:1,
 opacity:0.3,
@@ -165,6 +165,7 @@ color:"gray"
 
 },
     main_con:{
+      height:WINDOW_HEIGHT*0.94,
   backgroundColor:"#5271ff",
 marginBottom:WINDOW_HEIGHT/13,
  borderRadius:10,
@@ -180,7 +181,7 @@ alignItems:"center"
 },
 text_b:{
   padding:10,
-  color:"gray",
+  color:"black",
   opacity: 0.8,
   fontFamily:"GmarketSansTTFMedium",
   fontSize:WINDOW_WIDHT/30
@@ -194,7 +195,7 @@ fontSize:WINDOW_WIDHT/30
 
 },text_g:{
   padding:10,
-  color:"gray",
+  color:"black",
   opacity: 0.8,
   fontFamily:"GmarketSansTTFMedium",
   fontSize:WINDOW_WIDHT/40
@@ -202,7 +203,7 @@ fontSize:WINDOW_WIDHT/30
   },box_b:{
     alignItems:"center",
    justifyContent:"center",
-    backgroundColor:"gray",
+    backgroundColor:"black",
     opacity: 0.8,
    borderTopLeftRadius:30,
     borderBottomLeftRadius:30,
@@ -279,11 +280,11 @@ borderRadius:5,
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5, 
-    borderRadius:5,
+    borderRadius:20,
     backgroundColor :"white",
    
     padding:10,
-    margin:10
+    margin:15
   },
   main_card:{
     backgroundColor:"white",
@@ -368,6 +369,24 @@ fontWeight:'bold'
         flex:1,
         justifyContent:"center",
         alignItems:"center"
+      },
+      logo_img:{
+        width:WINDOW_WIDHT/3,
+        padding:10,
+      
+        resizeMode:"contain"
+      },tabbar_text:{
+   
+        color:"white",
+        opacity: 0.8,
+        fontFamily:"GmarketSansTTFMedium",
+        fontSize:WINDOW_WIDHT/30
+      },chart_con:{
+        
+      
+        flex:1,alignContent:"center",flexDirection:"row",alignItems:"center"
+
+
       }
 
 
